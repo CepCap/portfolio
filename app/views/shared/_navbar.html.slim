@@ -1,0 +1,7 @@
+div class='bg-info' style='height:5vh'
+  .row
+    .offset-md-1.col-md-3
+      = link_to 'Create portfolio', new_portfolio_path, class: "text-dark"
+    - if params[:action] != 'index'
+      div.col-md-7.text-right
+        = link_to 'Home', root_path, class: "text-dark"

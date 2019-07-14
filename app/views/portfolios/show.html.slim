@@ -1,0 +1,9 @@
+div.offset-md-3
+  div.col-md-9
+    h1 = "#{portfolio.first_name} #{portfolio.last_name}"
+    div = image_tag portfolio.photo_link, size: '500x300'
+    h3 О себе:
+    h5.offset-md-1 style="height:20vh"= portfolio.about
+    div.row
+      -portfolio.tags.each do |tag|
+        p.btn.btn-primary= tag.name

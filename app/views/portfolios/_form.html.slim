@@ -1,0 +1,16 @@
+= form_with model: portfolio do |f|
+  .offset-md-4.col-md-6
+    p= f.label :first_name, 'Имя'
+    = f.text_field :first_name
+    p= f.label :last_name, 'Фамилия'
+    = f.text_field :last_name
+    p= f.label :photo_link, 'Ссылка на фотографию'
+    = f.text_field :photo_link
+    p= f.label :about, 'О себе: '
+    = f.text_area :about
+    p= f.label :about, 'Тэги: '
+    - tags.each do |tag|
+      .row
+        p.col-md-3= f.label :tags, "#{tag.name}"
+        = f.check_box :tags, { multiple: true }, tag.id, false
+    p= f.submit 'Save'
