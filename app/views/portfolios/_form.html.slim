@@ -1,10 +1,10 @@
 = form_with model: @portfolio do |f|
   .offset-md-4.form-group
     .row style='height: 7vh;'
-      .col-md-3= f.label :first_name, t(:portfolio)[:name]
+      .col-md-3= f.label :first_name, t(:portfolio)[:first_name]
       = f.text_field :first_name, class: 'col-md-4 form-control'
     .row style='height: 7vh;'
-      .col-md-3= f.label :last_name, t(:portfolio)[:surname]
+      .col-md-3= f.label :last_name, t(:portfolio)[:last_name]
       = f.text_field :last_name, class: 'col-md-4 form-control'
     .row style='height: 7vh;'
       .col-md-3= f.label :phone, t(:portfolio)[:phone]
