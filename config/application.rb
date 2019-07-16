@@ -15,5 +15,8 @@ module Blog
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+    config.time_zone = 'Moscow'
+    I18n.config.available_locales = :ru, :en
+    I18n.config.default_locale = :ru
   end
 end

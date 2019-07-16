@@ -1,11 +1,10 @@
 class PortfoliosController < ApplicationController
-  expose :tags, -> { Tag.all }
-  expose :portfolio
-  expose :portfolios, -> { Portfolio.all }
+  before_action :find_tags, only: [:edit, :new]
+  before_action :find_portfolio, only: [:show, :edit, :destroy]
+  before_action :find_portfolios, only: [:index]
 
   def destroy
-    @id = portfolio.id
-    portfolio.destroy
+    @portfolio.destroy
   end
 
   def create
@@ -19,8 +18,8 @@ class PortfoliosController < ApplicationController
   end
 
   def update
-    @portfolio = Portfolio.create(portfolio_params)
-    params['portfolio']['tags'].each { |tag_id| @portfolio.tags << Tag.find(tag_id) }
+    @portfolio = Portfolio.update(portfolio_params)
+    @portfolio.tags = Tag.where(id: params['portfolio']['tags'])
     if @portfolio.save
       redirect_to @portfolio, notice: "Your portfolio successfully created."
     else
@@ -29,13 +28,7 @@ class PortfoliosController < ApplicationController
   end
 
   def new
-  end
-
-  def edit
-  end
-
-  def show
-    @tags = portfolio.tags
+    @portfolio = Portfolio.new
   end
 
   private
@@ -43,5 +36,17 @@ class PortfoliosController < ApplicationController
   def portfolio_params
     params.require(:portfolio).permit(:first_name, :last_name, :about,
                                       :photo_link)
+  end
+
+  def find_portfolio
+    @portfolio = Portfolio.find(params['id'])
+  end
+
+  def find_tags
+    @tags = Tag.all
+  end
+
+  def find_portfolios
+    @portfolios = Portfolio.all
   end
 end

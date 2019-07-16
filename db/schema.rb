@@ -18,7 +18,9 @@ ActiveRecord::Schema.define(version: 2019_07_14_163934) do
   create_table "portfolios", force: :cascade do |t|
     t.string "first_name", null: false
     t.string "last_name", null: false
+    t.string "email", null: false
     t.string "photo_link"
+    t.string "phone"
     t.text "about", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

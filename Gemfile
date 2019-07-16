@@ -18,7 +18,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'slim'
 gem 'bootstrap'
 gem 'jquery-rails'
-gem 'decent_exposure', '3.0.0'
 gem 'validate_url'
 
 group :development, :test do

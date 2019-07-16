@@ -3,11 +3,4 @@ div class="bg-light" style="height:100vh"
     div.col-md-9.text-center
       h1 style='height:10vh'
         |Portfolios list:
-    - portfolios.each do |portfolio|
-      div portfolio-id="#{portfolio.id}"
-        h5.row
-          .col-md-3
-            = link_to "#{portfolio.first_name} #{portfolio.last_name}",
-                      portfolio_path(portfolio)
-          .offset-md-3.small
-            = link_to 'Delete', portfolio, method: :delete, remote: true
+    = render @portfolios, locals: :portfolio

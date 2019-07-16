@@ -1,0 +1,8 @@
+ru:
+  portfolio:
+    first_name: 'Имя'
+    last_name: 'Фамилия'
+    phone: 'Номер телефона'
+    photo_link: 'Ссылка на фотографию'
+    about: 'О себе:'
+    tags: 'Тэги'
