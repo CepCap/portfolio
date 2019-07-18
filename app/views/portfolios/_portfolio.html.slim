@@ -1,0 +1,7 @@
+div portfolio-id="#{portfolio.id}"
+  h5.row
+    .col-md-3
+      = link_to "#{portfolio.first_name} #{portfolio.last_name}",
+                portfolio_path(portfolio)
+    .offset-md-3.small
+      = link_to 'Delete', portfolio, method: :delete, remote: true

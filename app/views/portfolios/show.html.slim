@@ -1,0 +1,14 @@
+.offset-md-4
+  .col-md-6
+    .card
+      =image_tag @portfolio.photo_link, class: 'card-img-top'
+      .card-body
+        .card-title= "#{@portfolio.first_name} #{@portfolio.last_name}"
+        .card-text
+          p Номер телефона: #{number_to_phone(@portfolio.phone)}
+          p Email: #{@portfolio.email}
+    h3 О себе:
+    h5.offset-md-1 style="height:15vh"= @portfolio.about
+    .offset-md-1.row
+      -@portfolio.tags.each do |tag|
+          p.btn.btn-primary= tag.name

@@ -1,0 +1,26 @@
+= form_with model: @portfolio do |f|
+  .offset-md-4.form-group
+    .row style='height: 7vh;'
+      .col-md-3= f.label :first_name, t(:portfolio)[:first_name]
+      = f.text_field :first_name, class: 'col-md-4 form-control'
+    .row style='height: 7vh;'
+      .col-md-3= f.label :last_name, t(:portfolio)[:last_name]
+      = f.text_field :last_name, class: 'col-md-4 form-control'
+    .row style='height: 7vh;'
+      .col-md-3= f.label :phone, t(:portfolio)[:phone]
+      = f.text_field :phone, placeholder: '+7 (000) 000-00-00', class: 'col-md-4 form-control'
+    .row style='height: 7vh;'
+      .col-md-3= f.label :email, 'Email'
+      = f.text_field :email, placeholder: 'name@example.com', class: 'col-md-4 form-control'
+    .row style='height: 7vh;'
+      .col-md-3= f.label :photo_link, t(:portfolio)[:photo_link]
+      = f.text_field :photo_link, class: 'col-md-4 form-control'
+    .row style='height: 7vh;'
+      .col-md-3= f.label :about, t(:portfolio)[:about]
+      = f.text_area :about, class: 'col-md-4 form-control'
+    p= f.label :about, "#{t(:portfolio)[:tags]}:"
+    - @tags.each do |tag|
+      .row
+        p.col-md-3= f.label :tags, "#{tag.name}"
+        = f.check_box :tags, { multiple: true }, tag.id, false
+    p= f.submit 'Save'
